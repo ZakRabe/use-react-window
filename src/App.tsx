@@ -1,24 +1,25 @@
 import "./styles.css";
-import RequstResize from "./examples/RequestResize";
-import { FC } from "react";
-
-const ExampleWrapper: FC = ({ children }) => (
-  <div style={{ height: 500, width: "100%" }}>{children}</div>
-);
+import ResizingItems from "./examples/pages/ResizingItems";
+import ResizeContainer from "./examples/pages/ResizeContainer";
 
 export default function App(): JSX.Element {
   return (
     <div className="App">
       <h1>use-react-window</h1>
 
-      <h2>
-        <code>useRequestReset</code>
-      </h2>
+      <h2>useRequestReset</h2>
       <p>
         Args: VariableSizeList ref debounceMs Returns: Stateless debounced
         callback wrapper around `VariableSizeList.resetAfterIndex`
       </p>
-      <h3>Vertical VariableSizeList</h3>
+
+      <h2>useResizingItems</h2>
+      <p>
+        Args: VariableSizeList ref debounceMs Returns: Stateless debounced
+        callback wrapper around `VariableSizeList.resetAfterIndex`
+      </p>
+
+      <h3>Internal state using VariableSizeList</h3>
       <p>
         Notice the size the Virtual Item reports is based on isExpanded. The
         isExpanded state is internal to the Virtual Item component.
@@ -34,17 +35,27 @@ export default function App(): JSX.Element {
         the size of the Item.
       </p>
 
-      <ExampleWrapper>
-        <RequstResize />
-      </ExampleWrapper>
+      <ResizingItems />
 
-      <h2>
-        <code>useResizingItems</code>
-      </h2>
+      <h2>useListSize</h2>
       <p>
-        Args: VariableSizeList ref debounceMs Returns: Stateless debounced
-        callback wrapper around `VariableSizeList.resetAfterIndex`
+        Sometimes you want to render virtual items in a container that could
+        change size, or we cant know it ahead of time. For example CSS Display
+        types (such as flebox or grid), or media queries.
       </p>
+
+      <p>
+        Perhaps we want a vertical List that fills a flexbox column, or a
+        horizontal list that fills a row.
+      </p>
+
+      <p>
+        useListSize lets you watch a dom node's size, react statefully to any
+        changes in the bounding client rectangle. the hook returns the width and
+        height props needed for a react-window List/Grid, as well as the
+        direction for List
+      </p>
+      <ResizeContainer />
     </div>
   );
 }

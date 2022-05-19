@@ -11,7 +11,7 @@ export const useResizingItems = (
   const getItemSize = useCallback(
     (index: number) => {
       const size = sizeMap.current.get(index) ?? defaultSizePx;
-      console.log("getSize", index, size);
+      // console.log("getSize", index, size);
       return size;
     },
     [defaultSizePx]

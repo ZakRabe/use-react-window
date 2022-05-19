@@ -1,10 +1,6 @@
 import debounce from "lodash.debounce";
 import { MutableRefObject, useCallback, useMemo, useRef } from "react";
-import {
-  FixedSizeList,
-  VariableSizeGrid,
-  VariableSizeList
-} from "react-window";
+import { VariableSizeList } from "react-window";
 
 const useRequestReset = (
   listRef: MutableRefObject<VariableSizeList | null>,
@@ -16,7 +12,7 @@ const useRequestReset = (
       return;
     }
     listRef.current?.resetAfterIndex(resetIndex.current);
-    console.log("flushed at index:", resetIndex.current);
+    // console.log("flushed at index:", resetIndex.current);
     resetIndex.current = null;
   }, [listRef]);
 
@@ -27,7 +23,7 @@ const useRequestReset = (
 
   const requestReset = useCallback(
     (index: number) => {
-      console.log("requested reset from index:", index);
+      // console.log("requested reset from index:", index);
       if (resetIndex.current === null || index < resetIndex.current) {
         resetIndex.current = index;
         debouncedFlush();

@@ -9,6 +9,7 @@
   ],
   "main": "src/index.tsx",
   "dependencies": {
+    "@react-hook/resize-observer": "1.2.5",
     "@types/lodash.debounce": "4.0.7",
     "@types/react-window": "1.8.5",
     "lodash.debounce": "4.0.8",
