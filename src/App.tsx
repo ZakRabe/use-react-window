@@ -1,6 +1,7 @@
 import "./styles.css";
 import ResizingItems from "./examples/pages/ResizingItems";
 import ResizeContainer from "./examples/pages/ResizeContainer";
+import VirtualState from "./examples/pages/VirtualState";
 
 export default function App(): JSX.Element {
   return (
@@ -56,6 +57,12 @@ export default function App(): JSX.Element {
         direction for List
       </p>
       <ResizeContainer />
+
+      <h2>useVirtualState</h2>
+      <VirtualState />
+
+      <h2>useVirtualBoolean</h2>
+      <h2>useDynamicSize</h2>
     </div>
   );
 }

@@ -2,6 +2,11 @@ import debounce from "lodash.debounce";
 import { MutableRefObject, useCallback, useMemo, useRef } from "react";
 import { VariableSizeList } from "react-window";
 
+/**
+ * Creates a callback to tell `react-window` that one or more of our list items has resized, and it needs to recalculate scroll
+ *
+ * debounced to reduce calls to `resetAfterIndex` when multiple resets are requested within the `debounceMs`
+ */
 const useRequestReset = (
   listRef: MutableRefObject<VariableSizeList | null>,
   debounceMs = 100

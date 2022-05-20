@@ -22,13 +22,13 @@ export default useSize;
 
 export const useListSize = (
   wrapperRef: MutableRefObject<HTMLElement | null>,
-  direction?: VariableSizeListProps["layout"]
-): Pick<VariableSizeListProps, "height" | "width" | "direction"> => {
+  layout?: VariableSizeListProps["layout"]
+): Pick<VariableSizeListProps, "height" | "width" | "layout"> => {
   const { height, width } = useSize(wrapperRef);
 
   return {
-    height: direction === "horizontal" ? "100%" : height,
-    width: direction === "vertical" ? "100%" : width,
-    direction
+    height: layout === "horizontal" ? "100%" : height,
+    width: layout === "vertical" ? "100%" : width,
+    layout
   };
 };

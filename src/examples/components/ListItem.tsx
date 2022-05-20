@@ -5,6 +5,8 @@ type DivProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
 >;
+// TODO: Use Component Prop instead of children
+// This approach is bad. because the content of the list item rerenders on every scroll
 const ListItem: FC<ListChildComponentProps<any> & DivProps> = ({
   data,
   index,
